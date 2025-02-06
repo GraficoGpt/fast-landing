@@ -9,6 +9,12 @@ app.use(cors());
 app.use(express.json());
 console.log("Middleware JSON configurado correctamente.");
 
+//!SECTION Responder algo en el root "/"
+app.get('/', (req, res) => {
+    res.send('Api supabase y hubspot arriba')
+    console.log("Ruta '/' configurada correctamente.");
+  })
+
 // Importar y registrar la ruta del formulario
 const formularioRoutes = require('./routes/formulario');
 app.use('/formulario', formularioRoutes);
