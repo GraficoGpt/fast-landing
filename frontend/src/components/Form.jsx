@@ -1,6 +1,9 @@
 // src/components/Form.jsx
 import React, { useState } from 'react';
 
+const API_URL = import.meta.env.VITE_API_URL;
+console.log("API_URL:", API_URL);
+
 const Form = () => {
   const [formData, setFormData] = useState({
     nombres: '',
@@ -28,7 +31,7 @@ const Form = () => {
     console.log("Datos a enviar:", formData);
 
     try {
-      const response = await fetch('http://localhost:3000/formulario', {
+      const response = await fetch(`${API_URL}/formulario`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
